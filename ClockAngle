@@ -1,0 +1,19 @@
+public class ClockAngle {
+	public static void main(String[] args) {
+		double hour=10;
+		double mins=55;
+		System.out.println(clockAngle(hour,mins));
+	}
+	public static double clockAngle(double hours,double mins) {
+		double angle_per_min=360/60;
+		double angle_per_hour=360/12;
+		double hour_angle=hours*angle_per_hour;
+		double mins_angle=mins*angle_per_min;
+		double total_hour_angle=hour_angle+(mins/60)*angle_per_hour;
+		if(Math.abs(total_hour_angle-mins_angle)>=180) {
+			return 360-Math.abs(total_hour_angle-mins_angle);
+		}
+		return Math.abs(total_hour_angle-mins_angle);
+	}
+
+}
