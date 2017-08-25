@@ -1,0 +1,28 @@
+import java.util.Arrays;
+
+public class SelectionSort {
+public static void main(String[] args) {
+	int[] input= {23,4,55,9,1,99,0,4,56,7,34,555};
+	System.out.println(Arrays.toString(input));
+
+	int small;
+	for(int i=0;i<input.length;i++) {
+		int j=i;
+		int id=i;
+		small=input[j];
+		while(j<input.length) {
+			if(small>input[j]) {
+				small=input[j];
+				id=j;
+			}
+			j=j+1;
+		}
+		if(id != i) {
+			int e=input[i];
+			input[i]=input[id];
+			input[id]=e;
+		}
+	}
+	System.out.println(Arrays.toString(input));
+}
+}
