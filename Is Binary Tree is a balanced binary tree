@@ -1,0 +1,51 @@
+public class BalancedBinaryTree {
+	public static void main(String[] args) {
+		
+		Node n=new Node();
+		Node chaild=new Node();
+		chaild.value=5;
+		chaild.left=null;
+		chaild.right=null;
+		Node chaild1=new Node();
+		chaild.value=6;
+		chaild1.left=null;
+		chaild1.right=null;
+		n.value=2;
+		n.left=chaild;
+		n.right=chaild1;
+		Node chaild2=new Node();
+		chaild2.value=7;
+		chaild2.left=null;
+		chaild2.right=null;
+		chaild1.left=chaild2;
+		Node chaild3=new Node();
+		chaild3.value=8;
+		chaild3.left=null;
+		chaild3.right=null;
+		chaild2.left=chaild3;
+		
+		
+		
+		System.out.println(isBalanced(n));
+	}
+	public static class Node{
+		private int value;
+		private Node left;
+		private Node right;
+	}
+	public static boolean isBalanced(Node n) {
+		if(countHeight(n)> -1) return true;
+		return false;
+	}
+	public static int countHeight(Node n) {
+		if(n==null)return 0;
+		int h1=countHeight(n.left);
+	int	h2=countHeight(n.right);
+	if(h1==-1 || h2==-1) return -1;
+	if(Math.abs(h1-h2)>1) return -1;
+	if(h1>h2) return h1+1;
+	return h2+1;
+	
+	}
+
+}
