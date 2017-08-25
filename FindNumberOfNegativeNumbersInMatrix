@@ -1,0 +1,21 @@
+public class FindingNumberOfNegitiveNumbersInMatrix {
+
+public static void main(String[] args) {
+	int[][] matrix= {{-4,-3,-2,5},{-3,-2,-1,6},{-2,-1,0,9},{-1,0,3,11}};
+	System.out.println(search(matrix,4,4));
+}
+public static int search(int[][] m,int l,int b) {
+	
+	int count=0;
+	for(int i=0;i<l;i++) {
+		for(int j=b-1;j>=0;j--) {
+		if(m[i][j]<0) {
+			count=count+j+1;
+			
+			break;
+		}
+		}
+	}
+	return count;
+}
+}
