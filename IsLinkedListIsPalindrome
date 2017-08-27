@@ -1,0 +1,35 @@
+import java.util.Stack;
+
+public class LinkedListIsPalindromeOrNot {
+public static void main(String[] args) {
+	Node n=new Node(1);
+	 n.next=new Node(2);
+	 n.next.next=new Node(3);
+	 n.next.next.next=new Node(3);
+	 n.next.next.next.next=new Node(5);
+	 n.next.next.next.next.next=new Node(1);
+	System.out.println(palindrome(n));
+}
+ static class Node{
+	int value;
+	Node next;
+	public Node(int n) {this.value=n;}
+}
+public static boolean palindrome(Node n) {
+	Stack<Integer> st=new Stack<Integer>();
+	Node curr=n;
+	Node move=n;
+	while(move!=null&&move.next!=null) {
+		st.push(curr.value);
+		curr=curr.next;
+		move=move.next.next;
+		
+	}
+	if(move!=null) curr=curr.next;
+	while(curr!=null) {
+		if(curr.value!=st.pop().intValue()) return false;
+		curr=curr.next;
+	}
+return true;
+}
+}
