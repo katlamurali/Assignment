@@ -1,0 +1,29 @@
+package nyse;
+
+public class ItemsAndPrices {
+public static void main(String[] args){
+	int[] weights={1,2,4,5,6,7};
+	int[] values={5,3,6,2,4,1};
+	int max=7;
+	int[][] matrix=new int[weights.length+1][max+1];
+	
+	System.out.println(check(weights,values,matrix));
+}
+public static int check(int[] weights,int[] values,int[][] matrix){
+	for (int i=1;i<matrix.length;i++){
+		for(int j=1;j<matrix[0].length;j++){
+			if(weights[i-1]<=j){
+			matrix[i][j]=Math.max(matrix[i-1][j],(values[i-1]+matrix[i-1][j-weights[i-1]]));
+
+			}
+			else{
+				matrix[i][j]=matrix[i-1][j];
+			}
+			}
+	}
+	return matrix[matrix.length-1][matrix[0].length-1];
+	
+}
+
+	
+}
